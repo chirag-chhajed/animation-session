@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.11",
+    "@uidotdev/usehooks": "^2.4.1",
     "clsx": "^2.1.1",
     "fumadocs-core": "15.2.12",
     "fumadocs-mdx": "11.6.1",

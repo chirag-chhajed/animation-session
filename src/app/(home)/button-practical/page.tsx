@@ -32,17 +32,7 @@ export default function SmoothButton() {
           }, 3500);
         }}
       >
-        {/* <AnimatePresence initial={false} mode="popLayout"> */}
-        <motion.span
-          // transition={{ type: "spring", duration: 0.3, bounce: 0 }}
-          initial={{ opacity: 0, y: -25 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: 25 }}
-          // key={buttonState}
-        >
-          {buttonCopy[buttonState]}
-        </motion.span>
-        {/* </AnimatePresence> */}
+        <span>{buttonCopy[buttonState]}</span>
       </button>
       <style>
         {`

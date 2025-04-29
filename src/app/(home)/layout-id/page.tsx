@@ -153,6 +153,7 @@ const Page = () => {
                               className="rounded-md border border-[#e1e4e8] bg-white p-2"
                               type="email"
                               id="email"
+                              autoComplete="off"
                             />
                           </div>
                           <div className="flex flex-col gap-2">
@@ -170,6 +171,7 @@ const Page = () => {
                                 className="w-full rounded-md border border-[#e1e4e8] bg-white p-2"
                                 type="password"
                                 id="password"
+                                autoComplete="off"
                               />
                               <button
                                 className="absolute right-2 top-1/2 -translate-y-1/2"
@@ -337,6 +339,7 @@ const Page = () => {
                               className="rounded-md border border-[#e1e4e8] bg-white p-2 "
                               type="email"
                               id="email"
+                              autoComplete="off"
                             />
                           </div>
                           <div className="flex flex-col gap-2">
@@ -354,6 +357,7 @@ const Page = () => {
                                 className="w-full rounded-md border border-[#e1e4e8] bg-white p-2"
                                 type="password"
                                 id="password"
+                                autoComplete="off"
                               />
                               <button
                                 className="absolute right-2 top-1/2 -translate-y-1/2"

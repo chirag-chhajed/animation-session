@@ -25,6 +25,8 @@ import {
   RegularLayout,
   MotionLayout,
 } from "./components/section-4/layout-id";
+import { Height, AnimatedHeight } from "./components/animating-height/height";
+
 // use this function to get MDX components, you will need it for rendering MDX
 export function getMDXComponents(components?: MDXComponents): MDXComponents {
   return {
@@ -48,5 +50,7 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
     MotionPresence,
     RegularLayout,
     MotionLayout,
+    Height,
+    AnimatedHeight,
   };
 }
