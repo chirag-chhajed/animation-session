@@ -1,0 +1,68 @@
+---
+title: AnimatePresence
+description: AnimatePresence
+---
+
+`AnimatePresence` is a special component in Framer Motion that enables exit animations for components that are being removed from the React tree.
+
+Normally in React, when you conditionally render a component and set it to false, it unmounts immediately—giving no chance for an exit animation. AnimatePresence solves this by keeping the component in the DOM just long enough to play the exit animation.
+
+## Regular React Component
+
+<AnimatedPresenceDemo/>
+
+```tsx
+export const RegularPresence = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  return (
+    <div className="space-y-4 h-40">
+      <button
+        onClick={() => setIsVisible(!isVisible)}
+        className="px-4 py-2 bg-blue-500 text-white rounded"
+      >
+        Toggle
+      </button>
+
+      {isVisible && (
+        <div
+          className="w-32 h-32 bg-red-500 rounded animate-slideIn"
+          style={{
+            animation: "slideIn 0.5s ease-out",
+          }}
+        />
+      )}
+    </div>
+  );
+};
+```
+
+```tsx
+// Framer Motion component with exit animation
+export const MotionPresence = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  return (
+    <div className="space-y-4 h-40">
+      <button
+        onClick={() => setIsVisible(!isVisible)}
+        className="px-4 py-2 bg-blue-500 text-white rounded"
+      >
+        Toggle
+      </button>
+
+      <AnimatePresence>
+        {isVisible && (
+          <motion.div
+            initial={{ opacity: 0, x: -100 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: 100 }}
+            transition={{ duration: 0.5 }}
+            className="w-32 h-32 bg-green-500 rounded"
+          />
+        )}
+      </AnimatePresence>
+    </div>
+  );
+};
+```

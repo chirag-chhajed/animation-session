@@ -56,9 +56,9 @@ export const SplitText = () => {
   }, []);
 
   return (
-    <div className="relative h-screen flex items-center justify-center text-6xl font-bold">
+    <div className="relative py-10 flex items-center justify-center text-6xl font-bold">
       <div
-        className="absolute border-slate-800"
+        className="absolute text-sky-400"
         style={{
           clipPath: `inset(0 0 ${100 - mousePosition}% 0)`,
         }}
@@ -66,7 +66,7 @@ export const SplitText = () => {
         REALLY COOL TEXT
       </div>
       <div
-        className="absolute text-slate-800"
+        className="absolute text-sky-800"
         style={{
           clipPath: `inset(${mousePosition}% 0 0 0)`,
         }}

@@ -1,21 +1,105 @@
 ---
-title: Hello World
+title: Section 1
 description: Your first document
 ---
 
-Welcome to the docs! You can start writing documents in `/content/docs`.
+## Taste, Animation, and Perceived Quality
 
-## What is Next?
+> Taste is maybe the biggest deciding factor in whether a product ends up feeling good or not, regardless of how much skill is involved.
 
-<Loader />
-<Linear />
-<EaseIn />
-<EaseOut />
-<EaseInOut />
-<CustomBezier />
-<Ease />
-<EasingSpring />
-<MotionSpring />
-<ClipPathDemo />
-<SplitText />
-<TabsClipPath />
+Think about how a car behaves: it needs to **accelerate** to reach its top speed, but it also needs to **decelerate** before coming to a stop. A purely ease-in motion would feel unnatural because it doesn't model this deceleration phase at all. Realistic motion tends to have both acceleration and deceleration phases, which is why choosing the right easing—or sometimes even using spring-based motion—makes such a big difference.
+
+---
+
+## Easings
+
+When designing motion, it's important to remember that the **perception of speed** is often more important than the **actual performance** of your app. Well-tuned animations can make even slower apps feel responsive and intentional.
+
+<Loader/>
+Here's a quick overview of common easing types:
+
+- **Ease-out**: Starts fast and ends slow.  
+  > Feels snappy and satisfying. Often used for things exiting the screen or settling into a final position.
+
+<EaseOut/>
+
+- **Ease-in-out**: Starts slow, speeds up in the middle, and slows down again toward the end.  
+  > Creates a very natural feel, similar to how many objects behave in the physical world.
+
+<EaseInOut/>
+
+- **Ease-in**: Starts slow and ends fast.  
+  > Generally avoided for major movements because it can feel sluggish and awkward.
+
+<EaseIn/>
+
+- **Linear**: Moves at a constant speed throughout.  
+  > Typically avoided because it feels robotic and unnatural, unless you're specifically going for a mechanical effect.
+
+<Linear/>
+
+- **Ease**: Similar to ease-in-out but asymmetrical—it starts a little faster and ends a little slower.  
+  > Often the default in CSS animations, it feels natural for many UI movements.
+
+<Ease/>
+
+- **Cubic-bezier**: Lets you define a fully custom easing curve.  
+  > Perfect when you want complete control over the feel of an animation.
+
+<CustomBezier/>
+
+---
+ 
+Default to **ease-out** for most UI animations. It gives users a sense of responsiveness without feeling jarring.
+
+### Resources
+
+These custom curves are made by Benjamin De Cock.
+> Benjamin De Cock is a prominent UI and interaction designer best known for his work at Stripe, where he helped craft its acclaimed design language and user experiences like Stripe Checkout.
+
+[Stripe Home](https://dribbble.com/shots/13676278-Home)
+
+```html
+<style>
+:root {
+  --ease-in-quad: cubic-bezier(.55, .085, .68, .53);
+  --ease-in-cubic: cubic-bezier(.550, .055, .675, .19);
+  --ease-in-quart: cubic-bezier(.895, .03, .685, .22);
+  --ease-in-quint: cubic-bezier(.755, .05, .855, .06);
+  --ease-in-expo: cubic-bezier(.95, .05, .795, .035);
+  --ease-in-circ: cubic-bezier(.6, .04, .98, .335);
+ 
+  --ease-out-quad: cubic-bezier(.25, .46, .45, .94);
+  --ease-out-cubic: cubic-bezier(.215, .61, .355, 1);
+  --ease-out-quart: cubic-bezier(.165, .84, .44, 1);
+  --ease-out-quint: cubic-bezier(.23, 1, .32, 1);
+  --ease-out-expo: cubic-bezier(.19, 1, .22, 1);
+  --ease-out-circ: cubic-bezier(.075, .82, .165, 1);
+ 
+  --ease-in-out-quad: cubic-bezier(.455, .03, .515, .955);
+  --ease-in-out-cubic: cubic-bezier(.645, .045, .355, 1);
+  --ease-in-out-quart: cubic-bezier(.77, 0, .175, 1);
+  --ease-in-out-quint: cubic-bezier(.86, 0, .07, 1);
+  --ease-in-out-expo: cubic-bezier(1, 0, 0, 1);
+  --ease-in-out-circ: cubic-bezier(.785, .135, .15, .86);
+}
+</style>
+```
+
+[Easing Functions](https://easings.co/)
+
+[Bezier Curves](https://youtu.be/aVwxzDHniEw?si=2E5gx4v5gUdV8tLp)
+
+
+## Spring Animations
+
+With easings, we cannot create natural motion because it requires duration and because the movement in the world around us doesn't have a fixed duration.
+
+<EasingSpring/>
+<MotionSpring/>
+
+With easings the mental model is duration and the type of easing. But with spring animations the mental model is mass, stiffness, and damping. 
+
+There's no duration involved in spring animations. But it doesn't mean that we cannot define duration. Framer motion let's you define duration with an another technique were you can define duration and the bounce.
+
+[Spring Physics](http://joshwcomeau.com/animation/a-friendly-introduction-to-spring-physics/)

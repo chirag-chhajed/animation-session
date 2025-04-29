@@ -13,8 +13,18 @@ import {
   EasingSpring,
   MotionSpring,
 } from "./components/section-1/spring-animations";
-import { ClipPathDemo, SplitText } from "./components/section-1/clip-path";
-import { TabsClipPath } from "./components/section-1/tabs-path";
+import { ClipPathDemo, SplitText } from "./components/section-3/clip-path";
+import { TabsClipPath } from "./components/section-3/tabs-path";
+import {
+  AnimatedPresenceDemo,
+  MotionPresence,
+  RegularPresence,
+} from "./components/section-4/animated-presence";
+import {
+  LayoutIdDemo,
+  RegularLayout,
+  MotionLayout,
+} from "./components/section-4/layout-id";
 // use this function to get MDX components, you will need it for rendering MDX
 export function getMDXComponents(components?: MDXComponents): MDXComponents {
   return {
@@ -32,5 +42,11 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
     ClipPathDemo,
     SplitText,
     TabsClipPath,
+    AnimatedPresenceDemo,
+    LayoutIdDemo,
+    RegularPresence,
+    MotionPresence,
+    RegularLayout,
+    MotionLayout,
   };
 }

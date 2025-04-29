@@ -1,0 +1,97 @@
+---
+title: CSS Animations
+description: CSS Animations
+---
+
+CSS animations are that are created with transition, keyframes. spring animations are not possible with CSS.
+
+[CSS Articles](https://css-articles.com/)
+
+## Use **CSS Animations** When:
+
+- You need a **simple hover effect**.  
+  > Example: button color change or slight scaling on hover.
+
+- You need to **animate an element in or out**.  
+  > Example: fade-ins, slide-ins, or basic entrance/exit animations.
+
+- You have an **infinite, linear animation** like a **marquee**.  
+  > Example: text scrolling horizontally across the screen.
+
+- You are working on a **bundle-size sensitive project**.  
+  > CSS animations are baked into the browser and add no additional JavaScript weight.
+
+---
+
+## Use **Framer Motion** (or other animation libraries) When:
+
+- You need to create **complex animations**.  
+  > Example: coordinated animations between multiple elements, dynamic transitions based on user interactions.
+
+- You want to make your animations feel **more sophisticated and polished**.  
+  > Example: smooth choreographed sequences, parallax effects, layout animations.
+
+- You want your animations to be **interruptible** and **feel natural**.  
+  > Example: a user dragging an element, changing its motion mid-animation without glitches.
+
+---
+
+Use CSS when the animation is **simple** and **structural**.  
+Use libraries like Framer Motion when the animation is **dynamic**, **interactive**, or **needs fine control**.
+
+## Clip Paths
+
+clip path is a css property that allows to clip shapes or trimming a DOM node into specific shapes, like triangles.
+
+<ClipPathDemo/>
+
+### Cool stuff you can do with clip path
+
+#### Split Text
+
+<SplitText/>
+
+How this effect works? you make two texts elements and make them overlap each other. Then you use clip path to clip the text into 50% of the height of the element.
+then you use the mouse move event to change the clip path of the element based on the mouse position.
+
+```tsx
+export const SplitText = () => {
+  const [mousePosition, setMousePosition] = useState(50);
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      const y = (e.clientY / window.innerHeight) * 100;
+      setMousePosition(Math.min(Math.max(y, 0), 100));
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
+
+  return (
+    <div className="relative py-10 flex items-center justify-center text-6xl font-bold">
+      <div
+        className="absolute text-sky-400"
+        style={{
+          clipPath: `inset(0 0 ${100 - mousePosition}% 0)`,
+        }}
+      >
+        REALLY COOL TEXT
+      </div>
+      <div
+        className="absolute text-sky-800"
+        style={{
+          clipPath: `inset(${mousePosition}% 0 0 0)`,
+        }}
+      >
+        REALLY COOL TEXT
+      </div>
+    </div>
+  );
+};
+```
+#### Tabs Clip Path
+<TabsClipPath/>
+
+
+
