@@ -26,6 +26,11 @@ import {
   MotionLayout,
 } from "./components/section-4/layout-id";
 import { Height, AnimatedHeight } from "./components/animating-height/height";
+import { Video } from "./components/video";
+import {
+  SpringControlledAnimationCorrected,
+  MyComponent,
+} from "./components/use-transform";
 
 // use this function to get MDX components, you will need it for rendering MDX
 export function getMDXComponents(components?: MDXComponents): MDXComponents {
@@ -52,5 +57,8 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
     MotionLayout,
     Height,
     AnimatedHeight,
+    Video,
+    SpringControlledAnimationCorrected,
+    MyComponent,
   };
 }
